@@ -10,9 +10,10 @@
 	
 ##	01-03-Ingresar al directorio Campus y renombrar env-example to .env.
 
-	cd Campus
-	cp env-example .env
-	cd ..  # Para volver a directorio raíz
+	cd campus
+	cp .env.example .env
+<!---  volver a directorio raíz -->
+	cd ..  
 	
 ##	01-04-Desde github clonar laradock
 
@@ -25,7 +26,7 @@
  
 ##	01-06-Establecer directorio de proyecto
 
-	Editar .env y cambiar la configuración APP_CODE_PATH_HOST por lo siguiente APP_CODE_PATH_HOST=../Campus
+	Editar .env y cambiar la configuración APP_CODE_PATH_HOST por lo siguiente APP_CODE_PATH_HOST=../campus
 	
 ##	01-07-Iniciar Contenedores
 
@@ -58,7 +59,8 @@
 
 ##	02-01-Ir a directorio laradock/nginx y renombrar laravel.conf.example to default.conf
 
-	cd laradock/nginx
+<!--- Esta en el directorio laradock -->
+	cd nginx/sites 
 	cp laravel.conf.example default.conf
 	
 ##	02-02-Modificar Configuración
@@ -66,22 +68,24 @@
 	Editar archivo default.conf duplicar la configuración server{} tantas veces se requiera
 	Sobrescribir la configuración  root /var/www/laravel/public; En cada configuración server{} 
 	
-		Definir una para la aplicación campus ej: "root /var/www/Campus/public;"
-		Definir una para la aplicación NewProject ej: "root /var/www/NewProject/public;"
+		Definir una para la aplicación campus ej: "root /var/www/campus/public;"
+		Definir una para la aplicación NewProject ej: "root /var/www/newproject/public;"
 
 ##	02-03-Add the domains to the hosts files 
 
-	127.0.0.1  Campus.test
-	127.0.0.1  NewProject.test
+	127.0.0.1  campus.test
+	127.0.0.1  newproject.test
 	
 ##	02-04-Establecer directorio de proyectos
 
 	Editar .env y cambiar la configuración APP_CODE_PATH_HOST por lo siguiente APP_CODE_PATH_HOST=../proyectos/
 
-		
-##	02-05-Recrear las imagenes nginx y workspace (clean build of an image)
 
-	docker build --no-cache .
+##	02-05-Recrear las imagenes nginx  (clean build of an image)
+
+<!--- Esta en el directorio laradock/nginx -->
+
+	docker build --no-cache .  
 	
 ##	02-06-Iniciar Contenedores
 
@@ -93,21 +97,26 @@
 
 ##	02-08-Instalar laravel
 
-	composer global require laravel/installer	
+	composer global require laravel/installer
 
-##	02-09-Crear proyecto desde cero con composer 
+##	02-09-Crear proyecto desde cero con composer (opcional)
+
+<!--- Antes de instalar comprobar con php artisan --version
+	  si esta instalado se puede generar un proyecto con laravel new newproject
+ -->
 	
-	composer create-project --prefer-dist laravel/laravel NewProject
+	composer create-project --prefer-dist laravel/laravel newproject
 	 
+##	02-10-Mover aplicación Campus al directorio proyectos 
 
-##	02-10-Ver aplicación en navegador
-	
-	http://NewProject.test/
-	
-##	02-11-Mover aplicación Campus al directorio proyectos 
+<!-- Volver a la ruta: /Laravel-demo -->
 
-    cd /Laravel-demo 
-	mv /Campus /proyectos/
+    cd .. 
+	move campus proyectos
+
+##	02-11-Ver aplicación en navegador
+	
+	http://newproject.test/	
 	
 --------------------------------
 
@@ -117,22 +126,44 @@
 
 	docker-compose down
 
-##	03-02-Para listar branch
+##	03-04-Eliminar imagenes y contenedores.
+
+	To delete all containers including its volumes use,
+
+		docker rm -vf $(docker ps -a -q)
+		
+	To delete all the images,
+
+		docker rmi -f $(docker images -a -q)
+
+##	03-03-Para listar branch
 
 	git branch -a 	 	(local)
 	git branch -r  		(remoto)
 
-##	03-03-Para cambiar de branch
+##	03-04-Para cambiar de branch
 
 	git checkout [name_of_your_new_branch]
 
-##	03-04-Para crear branch
+##	03-05-Para crear branch
 
 	git checkout -b [name_of_your_new_branch]
 
-##	03-05-Publicar branch en github
+##	03-06-Publicar branch en github
 
 	git push origin [name_of_your_new_branch]
+
+# 04 Información Útil
+
+##	04-01-Conectar a mysql con Mysql Workbench
+
+	Agregar una nueva conexión con los parámetros:
+
+	Hostname = 127.0.0.1 
+	Port =3600
+	Username = root
+	Password = root
+
 	 
  
 
