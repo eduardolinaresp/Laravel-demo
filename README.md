@@ -1,4 +1,4 @@
-#01 Inicializar proyecto 
+# 01 Inicializar proyecto 
 
 ##	01-01-Desde github clonar este proyecto
 
@@ -54,7 +54,7 @@
 
 --------------------
 
-#02 Generar nuevos proyectos 
+# 02 Generar nuevos proyectos 
 
 ##	02-01-Ir a directorio laradock/nginx y renombrar laravel.conf.example to default.conf
 
@@ -111,7 +111,7 @@
 	
 --------------------------------
 
-#03 Comandos Útiles 
+# 03 Comandos Útiles 
 
 ##	03-01-Para destruir contenedores
 
