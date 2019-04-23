@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
-use App\Role;
+use App\Cliente;
 use Illuminate\Http\Request;
 
-class UsuariosController extends Controller
+class ClienteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +14,8 @@ class UsuariosController extends Controller
      */
     public function index()
     {
-        return view('usuario.index');
+        //
+        return view('cliente.index');
     }
 
     /**
@@ -25,14 +25,8 @@ class UsuariosController extends Controller
      */
     public function create()
     {
-
-       /* $pluckedroles=  Role::orderBy('name', 'ASC')->pluck('name','id');
-        $roles =  $pluckedroles->all();
-        */
-
-        $roles =  Role::all();
-
-         return view('usuario.create')->with('roles',  $roles );;
+        //
+        return view('cliente.create');
     }
 
     /**
@@ -43,38 +37,16 @@ class UsuariosController extends Controller
      */
     public function store(Request $request)
     {
-
-       // dd($request);
-
-
-
-
-        $User = new User($request->all());
-
-        $User->password = bcrypt($request->password);
-
-        $User->save();
-
-        $User->roles()->sync($request->input('role_id'));
-
-        $users = User::all();
-
-        $users->each(function($users){
-              $users->roles;
-        });
-
-        return view('home')->with('users',  $users );
-
+        //
     }
-
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\User  $user
+     * @param  \App\Cliente  $cliente
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show(Cliente $cliente)
     {
         //
     }
@@ -82,10 +54,10 @@ class UsuariosController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\User  $user
+     * @param  \App\Cliente  $cliente
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit(Cliente $cliente)
     {
         //
     }
@@ -94,10 +66,10 @@ class UsuariosController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\User  $user
+     * @param  \App\Cliente  $cliente
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, Cliente $cliente)
     {
         //
     }
@@ -105,10 +77,10 @@ class UsuariosController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\User  $user
+     * @param  \App\Cliente  $cliente
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy(Cliente $cliente)
     {
         //
     }

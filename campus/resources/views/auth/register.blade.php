@@ -70,7 +70,7 @@
                                 <label for="role-usuario" class="col-md-4 col-form-label text-md-right">{{ __('Rol usuario') }}</label>
 
                                 <div class="col-md-6">
-                                    <select  id="chosen-roles" class="form-control chosen-roles"  name="role-usuario" data-placeholder="seleccione una opcion" multiple required>
+                                    <select  id="chosen-roles" class="form-control chosen-roles"  name="role_id" data-placeholder="seleccione una opcion" multiple required>
 
                                             @foreach ($roles as $rol)
                                             <option value="{{ $rol->id }}"> {{ $rol->name }}  </option>
