@@ -1,3 +1,13 @@
+#### en windows o WSL  (TODO)
+
+## instalar dependencias php artisan
+
+- [Generar Sin docker compose](documentation/runwithoutdocker.md)
+
+- [Instalar dependencias](documentation/artisancommands.md)
+
+- [Instalar dependencias](documentation/artisancommands.md)
+
 ## En windows descomprimir binario de php (ideal el de alto rendimiento)
 
    se debe instalar el runtime de C++, configurar variables de entorno 
@@ -19,3 +29,14 @@
 ### Instalar dependencias del proyecto
 
  - [Instalar dependencias](artisancommands.md)
+
+
+# En caso de ejecutar sin docker compose 
+
+## Instalar directamente en windows
+
+- [Instalar en windows](windowsdirectinstall.md)
+
+## Instalar en WSL
+
+  TODO
