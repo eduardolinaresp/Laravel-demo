@@ -40,3 +40,7 @@
 ## Instalar en WSL
 
   TODO
+
+## Regresar 
+
+- [Volver a guia](README.md)

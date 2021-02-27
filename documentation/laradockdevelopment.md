@@ -25,4 +25,6 @@
  
 ###	01-09-Instalar dependencias
 
-- [Instalar dependencias](documentation/artisancommands.md)
+- [Instalar dependencias](artisancommands.md)
+
+- [Volver a guia](README.md)
